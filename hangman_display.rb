@@ -1,127 +1,134 @@
 module HangmanDisplay 
-    def tree
-        puts " ___________________"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
+    def puts_tree
+        puts "
+ ___________________
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|"
     end
     
-    def head 
-        puts " ___________________"
-        puts "|                   |"
-        puts "|                 __|__"
-        puts "|                |     |"
-        puts "|                 -----"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
+    def puts_head 
+        puts "
+ ___________________
+|                   |
+|                 __|__
+|                |     |
+|                |_____|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|"
     end
     
-    def body 
-        puts " ___________________"
-        puts "|                   |"
-        puts "|                 __|__"
-        puts "|                |     |"
-        puts "|                 -----"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
+    def puts_body 
+        puts "
+ ___________________
+|                   |
+|                 __|__
+|                |     |
+|                |_____|
+|                   |
+|                   |
+|                   |
+|                   |
+|                   |
+|
+|
+|
+|
+|"
     end
     
-    def right_arm
-        puts " ___________________"
-        puts "|                   |"
-        puts "|                 __|__"
-        puts "|                |     |"
-        puts "|                 -----"
-        puts "|                   |______"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
+    def puts_right_arm
+        puts "
+ ___________________
+|                   |
+|                 __|__
+|                |     |
+|                |_____|
+|                   |______
+|                   |
+|                   |
+|                   |
+|                   |
+|
+|
+|
+|
+|"
     end
     
-    def left_arm
-        puts " ___________________"
-        puts "|                   |"
-        puts "|                 __|__"
-        puts "|                |     |"
-        puts "|                 -----"
-        puts "|             ______|______"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
-        puts "|"
+    def puts_left_arm
+        puts "
+ ___________________
+|                   |
+|                 __|__
+|                |     |
+|                |_____|
+|             ______|______
+|                   |
+|                   |
+|                   |
+|                   |
+|
+|
+|
+|
+|"
     end
     
-    def right_leg
-        puts " ___________________"
-        puts "|                   |"
-        puts "|                 __|__"
-        puts "|                |     |"
-        puts "|                 -----"
-        puts "|             ______|______"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                    \\"
-        puts "|                     \\"
-        puts "|                      \\"
-        puts "|"
-        puts "|"
+    def puts_right_leg
+        puts "
+ ___________________
+|                   |
+|                 __|__
+|                |     |
+|                |_____|
+|             ______|______
+|                   |
+|                   |
+|                   |
+|                   |
+|                    \\
+|                     \\
+|                      \\
+|
+|"
     end
     
-    def left_leg
-        puts " ___________________"
-        puts "|                   |"
-        puts "|                 __|__"
-        puts "|                |     |"
-        puts "|                 -----"
-        puts "|             ______|______"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                   |"
-        puts "|                  / \\"
-        puts "|                 /   \\"
-        puts "|                /     \\"
-        puts "|"
-        puts "|"
+    def puts_left_leg
+        puts "
+ ___________________
+|                   |
+|                 __|__
+|                |     |
+|                |_____|
+|             ______|______
+|                   |
+|                   |
+|                   |
+|                   |
+|                  / \\
+|                 /   \\
+|                /     \\
+|
+|"
     end
 end

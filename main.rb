@@ -66,13 +66,13 @@ include HangmanDisplay
         puts "Incorrect guesses: #{@incorrect_guesses}" unless @incorrect_guesses == []
         
         case @lives_left
-        when 6 then tree
-        when 5 then head
-        when 4 then body
-        when 3 then right_arm
-        when 2 then left_arm
-        when 1 then right_leg
-        when 0 then left_leg
+        when 6 then puts_tree
+        when 5 then puts_head
+        when 4 then puts_body
+        when 3 then puts_right_arm
+        when 2 then puts_left_arm
+        when 1 then puts_right_leg
+        when 0 then puts_left_leg
         end
 
         word_progress = @secret_word.split("").map do |letter|
@@ -97,7 +97,6 @@ include HangmanDisplay
         end
         word
     end
-
 end
 
 class Player
