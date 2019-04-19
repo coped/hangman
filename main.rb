@@ -1,9 +1,10 @@
+require_relative 'hangman_display'
 require 'json'
 
 module Serialization
-
+    
     @@serializer = JSON
-
+    
     def serialize
         data = {}
         instance_variables.map do |thing|
@@ -12,7 +13,7 @@ module Serialization
 
         @@serializer.dump data
     end
-
+    
     def deserialize string
         data = @@serializer.parse string
         data.keys.each do |key|
@@ -23,6 +24,7 @@ end
 
 class Game
 include Serialization
+include HangmanDisplay
 
     attr_reader :secret_word, :over
 
@@ -62,6 +64,16 @@ include Serialization
         puts ""
         puts "Lives left: #{@lives_left}"
         puts "Incorrect guesses: #{@incorrect_guesses}" unless @incorrect_guesses == []
+        
+        case @lives_left
+        when 6 then tree
+        when 5 then head
+        when 4 then body
+        when 3 then right_arm
+        when 2 then left_arm
+        when 1 then right_leg
+        when 0 then left_leg
+        end
 
         word_progress = @secret_word.split("").map do |letter|
             letter = "_" unless @correct_guesses.include? letter.downcase
@@ -85,6 +97,7 @@ include Serialization
         end
         word
     end
+
 end
 
 class Player
@@ -92,6 +105,7 @@ class Player
         puts "\nTo save and exit, type 'save'"
         puts "\nGuess a letter:"
         guess = gets.chomp.downcase
+
         until guess.length == 1 || guess == "save"
             puts "\nYou can only guess one letter at a time."
             puts "Guess a letter:"
