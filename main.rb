@@ -14,8 +14,8 @@ module Serialization
         @@serializer.dump data
     end
     
-    def deserialize string
-        data = @@serializer.parse string
+    def deserialize(string)
+        data = @@serializer.parse(string)
         data.keys.each do |key|
             instance_variable_set(key, data[key])
         end
@@ -28,7 +28,7 @@ include HangmanDisplay
 
     attr_reader :secret_word, :over
 
-    def initialize display
+    def initialize(display)
         @secret_word = get_word
         @lives_left = 6
         @over = false
@@ -41,9 +41,9 @@ include HangmanDisplay
 
     public
 
-    def check_guess player_guess
+    def check_guess(player_guess)
         secret_letters = @secret_word.downcase.split("")
-        if secret_letters.include? player_guess
+        if secret_letters.include?(player_guess)
             @correct_guesses << player_guess
         else
             @incorrect_guesses << player_guess
@@ -76,7 +76,7 @@ include HangmanDisplay
         end
 
         word_progress = @secret_word.split("").map do |letter|
-            letter = "_" unless @correct_guesses.include? letter.downcase
+            letter = "_" unless @correct_guesses.include?(letter.downcase)
             letter
         end
 
@@ -114,7 +114,7 @@ class Player
     end
 end
 
-if File.exists? "hangman-save.txt"
+if File.exists?("hangman-save.json")
     puts "Want to load the last saved game? (y/n)"
     input = gets.chomp.downcase.strip
 end
@@ -123,11 +123,11 @@ puts "\nThe computer has chosen a randomly selected word and hidden it."
 puts "\nTry to guess the computer's secret word before running out of lives."
 
 if input == "y"
-    game = Game.new false
-    game.deserialize File.open("hangman-save.txt", "r"){|file| file.read}
+    game = Game.new(false)
+    game.deserialize(File.open("hangman-save.json", "r"){ |file| file.read })
     game.display_word_progress
 else 
-    game = Game.new true
+    game = Game.new(true)
 end
 player = Player.new
 
@@ -136,7 +136,7 @@ until game.over
 
     break if guess == "save"
 
-    game.check_guess guess
+    game.check_guess(guess)
 end
 
 if game.over
@@ -144,6 +144,6 @@ if game.over
     puts "The word was: #{game.secret_word}"
 else
     save = game.serialize
-    File.open("hangman-save.txt", "w"){|file| file.puts save}
+    File.open("hangman-save.json", "w"){ |file| file.puts(save) }
     puts "\nGame saved."
 end
